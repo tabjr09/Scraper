@@ -1,0 +1,25 @@
+{
+  "name": "Scraper",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tabjr09/Scraper.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tabjr09/Scraper/issues"
+  },
+  "homepage": "https://github.com/tabjr09/Scraper#readme",
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.2",
+    "mongojs": "^2.6.0"
+  }
+}
