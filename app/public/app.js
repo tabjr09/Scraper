@@ -1,6 +1,8 @@
 // Grab the articles as a json
 $.getJSON("/articles", function(data) {
 
+  const site = 'https://www.muscleandfitness.com';
+
   // For each one
   for (var i = 0; i < data.length; i++) {
     // Display the apropos information on the page
@@ -10,6 +12,7 @@ $.getJSON("/articles", function(data) {
     // var link = $('a');
 
     //var article = $('p');
+
 
     var noteForm = 
     "<div class='card my-4'>" +
@@ -52,9 +55,8 @@ $.getJSON("/articles", function(data) {
 
     $("#articles").append("<p data-id='" + data[i]._id + "'>" +
                            data[i].title + "<br>" + 
-                            //+ "</p>" +
-                           "<a href =" +data[i].link +
-                           "</a>Read More...</p>");
+                           "<a target='_blank'href =" + site + data[i].link  +
+                           ">Read More...</a></p>");
     $("#articles").append(noteForm);
   }
 });
