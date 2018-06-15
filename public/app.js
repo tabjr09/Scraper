@@ -5,14 +5,6 @@ $.getJSON("/articles", function(data) {
 
   // For each one
   for (var i = 0; i < data.length; i++) {
-    // Display the apropos information on the page
-
-    // var articlenode = $('div');
-    // var title = $('h2');
-    // var link = $('a');
-
-    //var article = $('p');
-
 
     var noteForm = 
     "<div class='card my-4'>" +
@@ -30,28 +22,6 @@ $.getJSON("/articles", function(data) {
     "</div>" +
     "</div>"
 
-    //article.attr("data-id", data[i]._id); 
-
-    //.html(data[i].title + '<br>' + data[i].link);
-
-    //article.append(noteForm);
-    //$('#articles').append(article);
-
-    //articlenode.addClass("post-preview");
-    //articlenode.attr("data-id", data[i]._id); 
-
-    //title.text(data[i].title);
-    //link.addClass("article-url");
-    //link.attr("href", data[i].link);
-
-    //articlenode.append(title);
-    //articlenode.append(link);
-    
-    //console.log(title);
-    //$("#articles").append(title);
-
-
-    //$('#article-list').append(articlenode);
 
     $("#articles").append("<p data-id='" + data[i]._id + "'>" +
                            data[i].title + "<br>" + 
@@ -62,13 +32,20 @@ $.getJSON("/articles", function(data) {
 });
 
 
-// $(document).on("click", '#scrape-btn', function() {
-//   $.ajax({
-//     method: "GET",
-//     url: "/articles"
-//   }).then(function(data) {
-//   }
-// });
+// Whenever someone clicks a p tag
+$(document).on("click", "#scrape-btn", function() {
+
+  $.ajax({
+    method: "GET",
+    url: "/articles" 
+
+  }).then(function(data) {
+      console.log(data);
+
+    });
+});
+
+
 
 
 // Whenever someone clicks a p tag
