@@ -32,7 +32,6 @@ $.getJSON("/articles", function(data) {
 });
 
 
-// Whenever someone clicks a p tag
 $(document).on("click", "#scrape-btn", function() {
 
   $.ajax({
@@ -41,6 +40,7 @@ $(document).on("click", "#scrape-btn", function() {
 
   }).then(function(data) {
       console.log(data);
+      location.reload();
 
     });
 });
