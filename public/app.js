@@ -37,7 +37,7 @@ $(document).on("click", "#scrape-btn", function() {
 
   $.ajax({
     method: "GET",
-    url: "/articles" 
+    url: "/scrape" 
 
   }).then(function(data) {
       console.log(data);
