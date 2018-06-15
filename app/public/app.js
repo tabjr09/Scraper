@@ -62,6 +62,15 @@ $.getJSON("/articles", function(data) {
 });
 
 
+// $(document).on("click", '#scrape-btn', function() {
+//   $.ajax({
+//     method: "GET",
+//     url: "/articles"
+//   }).then(function(data) {
+//   }
+// });
+
+
 // Whenever someone clicks a p tag
 $(document).on("click", "p", function() {
   // Empty the notes from the note section
