@@ -17,7 +17,8 @@ $.getJSON("/articles", function(data) {
     "<h7>Note</h7>" +
     "<textarea class='form-control' id = 'bodyinput-"+ data[i]._id  + "'" + "rows='3'></textarea>" +
     "</div>" +
-    "<button class='btn btn-primary savenote' notes-id=" + data[i]._id + ">Add Note</button>" +
+    "<button class='btn btn-primary savenote' save-notes-id=" + data[i]._id + ">Add Note</button>" +
+    "<button class='btn btn-danger viewnote' view-notes-id=" + data[i]._id + ">View Notes</button>" +
     "</form>" +
     "</div>" +
     "</div>"
@@ -45,6 +46,82 @@ $(document).on("click", "#scrape-btn", function() {
     });
 });
 
+
+
+
+// // Get the <span> element that closes the modal
+// var span = document.getElementsByClassName("close")[0];
+
+
+
+// // When the user clicks on <span> (x), close the modal
+$(document).on("click", "#myModal", function() {
+  $('#myModal').hide();
+  $('#modal-notes').empty();
+
+});
+
+// // When the user clicks anywhere outside of the modal, close it
+// window.onclick = function(event) {
+//     if (event.target == modal) {
+//         modal.style.display = "none";
+//     }
+// }
+
+// When you click the savenote button
+$(document).on("click", ".viewnote", function() {
+  // Grab the id associated with the article from the submit button
+
+  event.preventDefault();
+  console.log("view note clicked");
+  var thisId = $(this).attr("view-notes-id");
+ 
+
+  $.ajax({
+    method: "GET",
+    url: "/articles/" + thisId
+  })
+    // With that done, add the note information to the page
+    .then(function(data) {
+      //console.log(data.note.title);
+      //console.log(data.note.body);
+
+      // If there's a note in the article
+       if (data.note) {
+        $('#myModal').show();
+
+        var notes = data.note;
+
+        console.log(data.note);
+
+        console.log("notes length: " + notes.length);
+
+        // for(let i = 0; i < data.note.length; i++){
+          
+          $('#modal-notes').append('<h7>' + data.note.title + '<br>' + data.note.body +
+          '<button type="button" class="delete" aria-label="Close">' +
+          '<span aria-hidden="true">&times;</span>' +
+          '</button></h7><br>');
+        // }
+
+   
+      }
+    });
+
+  //console.log(thisId);
+
+   
+
+});
+
+window.onclick = function(event) {
+    if (event.target == $('#myModal')) {
+      $('#myModal').hide();
+    }
+}
+
+
+////////
 
 
 
